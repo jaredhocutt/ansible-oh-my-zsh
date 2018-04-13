@@ -1,0 +1,23 @@
+---
+
+- name: Install required packages
+  dnf:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - git
+    - zsh
+  become: yes
+
+- name: Clone oh-my-zsh repo
+  git:
+    repo: git://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+    force: yes
+    update: no
+    accept_hostkey: yes
+
+- name: Change shell to ZSH
+  command: chsh -s /bin/zsh {{ ansible_user_id }}
+  when: ansible_user_shell != "/bin/zsh"
+  become: yes
