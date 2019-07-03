@@ -1,10 +1,15 @@
-# Oh My ZSH
+# oh-my-zsh
 
-Installs oh-my-zsh and changes the current user's shell to ZSH.
+This role handles installing oh-my-zsh and setting the Ansible user's shell to
+zsh.
 
 ## Requirements
 
-None
+The hosts you are targeting should have the following packages:
+
+- git >= 1.7.1
+- python >= 2.6
+- python-dnf
 
 ## Role Variables
 
@@ -17,7 +22,15 @@ None
 ## Example Playbook
 
 ```yaml
-- hosts: localhost
+- hosts: servers
   roles:
-      - jaredhocutt.oh-my-zsh
+    - role: jaredhocutt.oh_my_zsh
 ```
+
+## License
+
+MIT
+
+## Author Information
+
+Jared Hocutt (@jaredhocutt)

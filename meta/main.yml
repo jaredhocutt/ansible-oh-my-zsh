@@ -1,14 +1,25 @@
 galaxy_info:
   role_name: oh_my_zsh
-  author: Jared Hocutt
-  description: Installs oh-my-zsh and changes the current user's shell to ZSH.
 
-  license: BSD
+  author: Jared Hocutt (@jaredhocutt)
+  description: >-
+    This role handles installing oh-my-zsh and setting the Ansible user's shell
+    to zsh.
 
+  license: MIT
+
+  # Reason: dnf module
   min_ansible_version: 1.9
 
   platforms:
-  - name: Fedora
-    versions:
-    - 27
-    - 28
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - oh-my-zsh
+    - zsh
+    - shell
+    - system
+
+dependencies: []
